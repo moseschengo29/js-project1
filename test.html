@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="main-header">Coding Challenge 1</h1>
+    <div class="main-container">
+      <div class="challenge-1">
+        <h1 class="challenge">Student Grade Generator</h1>
+        <div class="input">
+          <label for="marks" class="input-label">Enter Your Final Marks:</label>
+          <input
+            type="number"
+            placeholder="Enter Your Final Marks"
+            id="marks"
+            class="input marks-input"
+            required
+            max="100"
+            min="0"
+          />
+        </div>
+        <button class="submit submit-marks">Submit</button>
+        <p class="text final-grade hidden">You got an average grade of: A</p>
+      </div>
+
+      <div class="challenge-2">
+        <h1 class="challenge mg-top">Speed Detector</h1>
+        <div class="input">
+          <label for="speed" class="input-label"
+            >Enter the speed of the car:
+          </label>
+          <input
+            type="text"
+            placeholder="Enter the speed of the car"
+            id="speed"
+            class="input speed-input"
+            required
+            max="100"
+            min="0"
+          />
+        </div>
+        <button class="submit submit-speed">Submit</button>
+        <p class="text demerit-points hidden">You have 0 demerit points.</p>
+      </div>
+
+      <div class="challenge-3">
+        <h1 class="challenge mg-top">Net Salary Calculator</h1>
+        <div class="input net-salary-calc">
+          <label for="salary" class="input-label">Basic Salary: </label>
+          <input
+            type="number"
+            placeholder="Basic salary"
+            id="salary"
+            class="input basic-salary"
+            required
+            min="0"
+          />
+          <label for="benefits" class="input-label">Benefits: </label>
+          <input
+            type="number"
+            placeholder="Benefits"
+            id="benefits"
+            class="input benefits-input"
+            required
+            min="0"
+          />
+        </div>
+      </div>
+      <button class="submit submit-salary">Submit</button>
+      <p class="text gross-salary hidden">Your Gross Salary is:</p>
+      <p class="text net-salary hidden">Your net salary is:</p>
+      <p class="text tax-ded hidden">Your Tax Deduction is:</p>
+      <p class="text nhif-ded hidden">Your NHIF deduction is:</p>
+      <p class="text nssf-ded hidden">Your NSSF deduction is:</p>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
