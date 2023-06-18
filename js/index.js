@@ -117,5 +117,5 @@ buttonSalary.addEventListener("click", () => {
   nhifDeductionText.textContent = `Your nhif deduction is: ${nhifDeduction}ksh`;
 
   nssfDeductionText.classList.remove("hidden");
-  nssfDeductionText.textContent = `Your gross salary is: ${nssfDeduction}ksh`;
+  nssfDeductionText.textContent = `Your nssf deduction is: ${nssfDeduction}ksh`;
 });
