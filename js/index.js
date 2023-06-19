@@ -85,17 +85,63 @@ buttonSalary.addEventListener("click", () => {
   const basicSalary = Number(document.querySelector(".basic-salary").value);
   const benefits = Number(document.querySelector(".benefits-input").value);
 
-  //calculating gross salary
+  // //calculating gross salary
   const grossSalary = basicSalary + benefits;
 
-  // Calculating the  deductions
-  const taxDeduction = grossSalary * TAX_RATE;
-  const nhifDeduction = grossSalary * NHIF_RATE;
-  const nssfDeduction = grossSalary * NSSF_RATE;
+  //caluculating nssf deduction
+  const nssf = 0.06 * grossSalary;
 
-  //// Calculating the  net salary
-  const netSalary =
-    grossSalary - (taxDeduction + nhifDeduction + nssfDeduction);
+  //finding the nhif deductions
+  let nhif = 0;
+
+  if (grossSalary <= 5999) {
+    nhif = 150;
+  } else if (grossSalary >= 6000 && grossSalary <= 7999) {
+    nhif = 300;
+  } else if (grossSalary >= 8000 && grossSalary <= 11999) {
+    nhif = 400;
+  } else if (grossSalary >= 12000 && grossSalary <= 14999) {
+    nhif = 500;
+  } else if (grossSalary > 14999 && grossSalary <= 19999) {
+    nhif = 600;
+  } else if (grossSalary > 19999 && grossSalary <= 24999) {
+    nhif = 750;
+  } else if (grossSalary > 24999 && grossSalary <= 29999) {
+    nhif = 850;
+  } else if (grossSalary > 29999 && grossSalary <= 34999) {
+    nhif = 900;
+  } else if (grossSalary > 34999 && grossSalary <= 39999) {
+    nhif = 950;
+  } else if (grossSalary > 39999 && grossSalary <= 44999) {
+    nhif = 1000;
+  } else if (grossSalary > 44999 && grossSalary <= 49999) {
+    nhif = 1100;
+  } else if (grossSalary > 49999 && grossSalary <= 59999) {
+    nhif = 1200;
+  } else if (grossSalary > 59999 && grossSalary <= 69999) {
+    nhif = 1300;
+  } else if (grossSalary > 69999 && grossSalary <= 79999) {
+    nhif = 1400;
+  } else if (grossSalary > 79999 && grossSalary <= 89999) {
+    nhif = 1500;
+  } else if (grossSalary > 89999 && grossSalary <= 99999) {
+    nhif = 1600;
+  } else {
+    nhif = 1700;
+  }
+
+  //Calculating the net tax
+  let payee = 0;
+  if (grossSalary <= 24000) {
+    payee = grossSalary * 0.1;
+  } else if (grossSalary > 24000 && grossSalary <= 32333) {
+    payee = grossSalary * 0.25;
+  } else {
+    payee = grossSalary * 0.3;
+  }
+
+  // Calculating the  net salary
+  let netSalary = grossSalary - (nssf + nhif + payee);
 
   const grossSalaryText = document.querySelector(".gross-salary");
   const netSalaryText = document.querySelector(".net-salary");
@@ -111,11 +157,11 @@ buttonSalary.addEventListener("click", () => {
   netSalaryText.textContent = `Your net salary is: ${netSalary}ksh`;
 
   taxDeductionText.classList.remove("hidden");
-  taxDeductionText.textContent = `Your text deduction(P.A.Y.E) is: ${taxDeduction}ksh`;
+  taxDeductionText.textContent = `Your P.A.Y.E(tax deduction) is: ${payee}ksh`;
 
   nhifDeductionText.classList.remove("hidden");
-  nhifDeductionText.textContent = `Your nhif deduction is: ${nhifDeduction}ksh`;
+  nhifDeductionText.textContent = `Your nhif deduction is: ${nhif}ksh`;
 
   nssfDeductionText.classList.remove("hidden");
-  nssfDeductionText.textContent = `Your nssf deduction is: ${nssfDeduction}ksh`;
+  nssfDeductionText.textContent = `Your nssf deduction is: ${nssf}ksh`;
 });
